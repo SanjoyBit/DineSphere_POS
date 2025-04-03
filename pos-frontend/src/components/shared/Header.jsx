@@ -33,7 +33,7 @@ const Header = () => {
   };
 
   return (
-    <header className="flex justify-between items-center h-16  py-4 px-8 shadow-2xl bg-gradient-to-br from-[#1e1e2e] via-[#252738] to-[#1e1e2e]">
+    <header className="flex justify-between items-center h-16  py-4 px-8 shadow-2xl bg-[#1b1521] ">
       {/* LOGO */}
       <div onClick={() => navigate("/")} className="flex items-center gap-2 cursor-pointer">
         <img src={logo} className="h-10 w-10" alt="restro logo" />
@@ -43,12 +43,12 @@ const Header = () => {
       </div>
 
       {/* SEARCH */}
-      <div className="flex items-center gap-4 bg-[#1b1521] rounded-[15px] px-5 py-2 w-[500px]">
+      <div className="flex items-center gap-4 bg-gradient-to-br from-[#1e1e2e] via-[#252738] to-[#1e1e2e] rounded-[15px] px-5 py-2 w-[500px]">
         <FaSearch className="text-[#f5f5f5]" />
         <input
           type="text"
           placeholder="Search"
-          className="bg-[#1b1521] w-full outline-none text-[#f5f5f5]"
+          className="bg-transparent w-full outline-none text-[#f5f5f5]"
         />
       </div>
 

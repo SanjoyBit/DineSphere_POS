@@ -54,7 +54,7 @@ const Tables = () => {
           <button
             onClick={() => setStatus("all")}
             className={`text-[#ababab] text-lg font-semibold px-5 py-2 rounded-lg ${
-              status === "all" ? "bg-[#383838]" : ""
+              status === "all" ? "bg-[#1b1521]" : ""
             }`}
           >
             All
@@ -62,7 +62,7 @@ const Tables = () => {
           <button
             onClick={() => setStatus("booked")}
             className={`text-[#ababab] text-lg font-semibold px-5 py-2 rounded-lg ${
-              status === "booked" ? "bg-[#383838]" : ""
+              status === "booked" ? "bg-[#1b1521]" : ""
             }`}
           >
             Booked

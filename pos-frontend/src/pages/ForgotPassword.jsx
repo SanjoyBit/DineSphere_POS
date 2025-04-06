@@ -9,16 +9,16 @@ const ForgotPassword = () => {
     alert(`Reset link sent to: ${email}`);
   };
 
-  
-
   return (
     <div className="h-screen flex justify-center items-center bg-gradient-to-r from-[#1e1e2e] via-[#252738] to-[#1e1e2e]">
       <div className="w-full max-w-md bg-[#1b1521] p-8 rounded-lg shadow-4xl">
-        <h2 className="text-2xl font-semibold text-white text-center">Forgot Password</h2>
+        <h2 className="text-2xl font-semibold text-white text-center">
+          Forgot Password
+        </h2>
         <p className="text-gray-400 text-sm text-center mt-2 mb-6">
           Enter your email to receive a One Time Password.
         </p>
-        
+
         <form onSubmit={handleSubmit}>
           <label className="block text-gray-400 mb-2 text-sm font-medium">
             Email Address
@@ -31,8 +31,8 @@ const ForgotPassword = () => {
             className="w-full p-3 rounded-lg bg-[#2d2338] text-white focus:outline-none "
             required
           />
-          
-          <Link to="/forgot-password/otp">
+
+          <Link to="/forgot-password/reset-password">
             <button
               type="submit"
               className="w-full mt-6 py-3 bg-[#6d54b5] text-gray-200 font-semibold rounded-lg hover:bg-[#7a7098] transition"
@@ -40,6 +40,15 @@ const ForgotPassword = () => {
               Send OTP
             </button>
           </Link>
+          <p className="text-sm text-gray-400 mt-4 text-center">
+            Remember Password?{" "}
+            <Link
+              to="/login"
+              className="text-[#6d54b5] font-bold hover:underline"
+            >
+              Login
+            </Link>
+          </p>
         </form>
       </div>
     </div>

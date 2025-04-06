@@ -63,23 +63,7 @@ const Modal = ({ setIsTableModalOpen }) => {
 
         {/* Modal Body */}
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label className="block text-[#d1c7e0] mb-2 text-sm font-medium">
-              Table Number
-            </label>
-            <div className="flex items-center shadow-2xl rounded-lg p-3 px-4 bg-[#3a2c4d] border border-[#6b5a8b]">
-              <input
-                type="number"
-                name="tableNo"
-                value={tableData.tableNo}
-                onChange={handleInputChange}
-                min="0"
-                className="bg-transparent flex-1 text-white placeholder-gray-400 focus:outline-none appearance-none custom-number-input"
-                placeholder="Enter table number"
-                required
-              />
-            </div>
-          </div>
+          
           <div>
             <label className="block text-[#d1c7e0] mb-2 text-sm font-medium">
               Number of Seats

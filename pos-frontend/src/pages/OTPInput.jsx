@@ -74,7 +74,7 @@ const OTPInput = () => {
           <div className="text-center text-[#ffb830] text-lg font-bold mb-4">
             {formatTime()} remaining
           </div>
-          <Link to="/forgot-password/otp/reset-password">
+          <Link to="/">
             <button
                 type="submit"
                 className="w-full px-4 py-3 rounded-lg font-semibold bg-[#6d54b5] text-gray-200 hover:bg-[#7a7098] transition"

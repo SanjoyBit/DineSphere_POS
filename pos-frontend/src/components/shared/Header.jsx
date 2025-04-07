@@ -37,27 +37,24 @@ const Header = () => {
     <>
       <header className="flex justify-between items-center h-16 py-4 px-8 shadow-2xl bg-[#1b1521]">
         {/* LOGO */}
-        <div onClick={() => navigate("/")} className="flex items-center gap-2 cursor-pointer">
+        <div
+          onClick={() => navigate("/")}
+          className="flex items-center gap-2 cursor-pointer"
+        >
           <img src={logo} className="h-10 w-10" alt="restro logo" />
           <h1 className="text-2xl font-rochester font-semibold text-[#f5f5f5] tracking-wide">
             DineSphere
           </h1>
         </div>
 
-        {/* SEARCH */}
-        <div className="flex items-center gap-4 bg-gradient-to-br from-[#1e1e2e] via-[#252738] to-[#1e1e2e] rounded-[15px] px-5 py-2 w-[500px]">
-          <FaSearch className="text-[#f5f5f5]" />
-          <input
-            type="text"
-            placeholder="Search"
-            className="bg-transparent w-full outline-none text-[#f5f5f5]"
-          />
-        </div>
 
         {/* LOGGED USER DETAILS */}
         <div className="flex items-center gap-4">
           {userData.role === "Admin" && (
-            <div onClick={() => navigate("/dashboard")} className="bg-[#1f1f1f] rounded-[15px] p-3 cursor-pointer">
+            <div
+              onClick={() => navigate("/dashboard")}
+              className="bg-[#1f1f1f] rounded-[15px] p-3 cursor-pointer"
+            >
               <MdDashboard className="text-[#f5f5f5] text-2xl" />
             </div>
           )}
@@ -66,7 +63,10 @@ const Header = () => {
           </div>
 
           {/* USER PROFILE CLICKABLE AREA */}
-          <div className="flex items-center gap-3 cursor-pointer" onClick={() => setShowProfileModal(true)}>
+          <div
+            className="flex items-center gap-3 cursor-pointer"
+            onClick={() => setShowProfileModal(true)}
+          >
             <FaUserCircle className="text-[#f5f5f5] text-3xl" />
             <div className="flex flex-col items-start">
               <h1 className="text-sm text-[#f5f5f5] font-semibold tracking-wide">
@@ -77,9 +77,9 @@ const Header = () => {
               </p>
             </div>
           </div>
-          
+
           <Link to="/login">
-            <TbLogout 
+            <TbLogout
               onClick={handleLogout}
               className="text-[#f5f5f5] ml-2"
               size={25}
@@ -88,7 +88,7 @@ const Header = () => {
         </div>
       </header>
 
-      {/* ANIMATED PROFILE MODAL */}
+{/******************************  ANIMATED PROFILE MODAL ********************************/}
       <AnimatePresence>
         {showProfileModal && (
           <motion.div
@@ -98,54 +98,71 @@ const Header = () => {
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="bg-[#1f1f1f] rounded-xl shadow-2xl p-6 w-96 relative"
+              className="w-[320px] rounded-xl overflow-hidden shadow-xl"
               initial={{ scale: 0.8, opacity: 0, y: -20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.8, opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
             >
-              {/* Close Button */}
-              <button
-                onClick={() => setShowProfileModal(false)}
-                className="absolute top-2 right-4 text-white text-xl font-bold"
-              >
-                ×
-              </button>
+              {/* Top Section */}
+              <div className="bg-[#1f1f2e] text-white px-6 py-6 flex flex-col items-center relative">
+                {/* Close Button */}
+                <button
+                  onClick={() => setShowProfileModal(false)}
+                  className="absolute top-2 right-4 text-white text-2xl font-bold hover:text-gray-400"
+                >
+                  ×
+                </button>
 
-              {/* Profile Image */}
-              <div className="flex justify-center mb-4">
-                <FaUserCircle className="text-white text-6xl bg-[#2d2d2d] rounded-full p-2" />
+                {/* Profile Image */}
+                <FaUserCircle className="text-white text-6xl bg-[#2d2d2d] rounded-full p-2 mb-3" />
+                <h2 className="font-semibold text-lg">Sanjoy</h2>
+                <p className="text-sm text-gray-300 mb-2">Admin</p>
+
+                {/* Verified Badge */}
+                <span
+                  className={`text-xs font-medium px-3 py-1 rounded-full ${
+                    userData.isVerified
+                      ? "bg-green-100 text-green-600"
+                      : "bg-red-100 text-red-600"
+                  }`}
+                >
+                  {userData.isVerified ? "Verified" : "Not Verified"}
+                </span>
               </div>
 
-              {/* User Info */}
-              <div className="text-left text-[#f5f5f5] space-y-2">
-                <h2 className="text-lg font-semibold">{userData.name}</h2>
-                <p>Email: {userData.email || "Not Provided"}</p>
-                <p>Phone: {userData.phone || "Not Provided"}</p>
-                <p>Role: {userData.role}</p>
-                <p>Verified: {userData.isVerified ? "Yes" : "No"}</p>
-              </div>
+              {/* Bottom Section */}
+              <div className="bg-white px-6 py-4 text-sm text-gray-800 space-y-3">
+                <div className="flex items-center gap-2">
+                  <span className="font-medium">Email:</span>
+                  <span>{userData.email || "Not Provided"}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="font-medium">Phone:</span>
+                  <span>{userData.phone || "Not Provided"}</span>
+                </div>
 
-              {/* Action Buttons */}
-              <div className="flex justify-around mt-6">
-                <button
-                  onClick={() => {
-                    setShowProfileModal(false);
-                    navigate("/update-profile");
-                  }}
-                  className="bg-[#6d54b5] text-white px-4 py-2 rounded-lg hover:bg-[#7a7098] transition"
-                >
-                  Update Profile
-                </button>
-                <button
-                  onClick={() => {
-                    setShowProfileModal(false);
-                    navigate("/change-password");
-                  }}
-                  className="bg-[#6d54b5] text-white px-4 py-2 rounded-lg hover:bg-[#7a7098] transition"
-                >
-                  Change Password
-                </button>
+                {/* Action Buttons */}
+                <div className="flex justify-between mt-5">
+                  <button
+                    onClick={() => {
+                      setShowProfileModal(false);
+                      navigate("/update-profile");
+                    }}
+                    className="bg-[#6d54b5] text-xs text-white px-4 py-2 rounded-lg hover:bg-[#7a7098] transition"
+                  >
+                    Update Profile
+                  </button>
+                  <button
+                    onClick={() => {
+                      setShowProfileModal(false);
+                      navigate("/change-password");
+                    }}
+                    className="bg-[#6d54b5] text-white px-4 py-2 text-xs rounded-lg hover:bg-[#7a7098] transition"
+                  >
+                    Change Password
+                  </button>
+                </div>
               </div>
             </motion.div>
           </motion.div>

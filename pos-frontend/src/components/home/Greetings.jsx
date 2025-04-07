@@ -27,7 +27,7 @@ const Greetings = () => {
     <div className="flex justify-between items-center px-8 mt-2">
       <div>
         <h1 className="text-[#f5f5f5] text-2xl font-semibold tracking-wide">
-          Good Morning, {userData.name || "Test User"}
+          Good Morning, {userData.name || "Sanjoy"}
         </h1>
         <p className="text-[#ababab] text-sm">
           Give your best services for customers 😀

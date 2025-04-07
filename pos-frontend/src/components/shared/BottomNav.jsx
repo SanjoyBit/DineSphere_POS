@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaHome } from "react-icons/fa";
-import { MdOutlineReorder, MdTableBar } from "react-icons/md";
-import { CiCircleMore } from "react-icons/ci";
+import { MdOutlineReorder, MdTableBar, MdOutlineAdminPanelSettings } from "react-icons/md";
+
 import { BiSolidDish } from "react-icons/bi";
 import { useNavigate, useLocation } from "react-router-dom";
 import Modal from "./Modal";
@@ -63,8 +63,8 @@ const BottomNav = () => {
       >
         <MdTableBar className="inline mr-2" size={20} /> <p>Tables</p>
       </button>
-      <button className="flex items-center justify-center font-bold text-[#ababab] w-[300px]">
-        <CiCircleMore className="inline mr-2" size={20} /> <p>More</p>
+      <button onClick={() => navigate("/dashboard")} className="flex items-center justify-center font-bold text-[#ababab] w-[300px]">
+      <MdOutlineAdminPanelSettings className="inline mr-2" size={20}  /> <p>Admin</p>
       </button>
 
       <button

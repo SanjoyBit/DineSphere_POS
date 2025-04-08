@@ -20,11 +20,12 @@ import { AnimatePresence } from "framer-motion";
 import UpdateProfile from "./pages/UpdateProfile";
 import ChangePassword from "./pages/ChangePassword";
 import Employees from "./pages/Employees";
+import AddStock from "./pages/AddStock";
 
 function AnimatedRoutes() {
   const isLoading = useLoadData();
   const location = useLocation();
-  const hideHeaderRoutes = ["/login", "/register", "/forgot-password", "/otp", "/forgot-password/reset-password"];
+  const hideHeaderRoutes = ["/login", "/register", "/inventory","/forgot-password", "/otp", "/forgot-password/reset-password", "/add-stock"];
   const { isAuth } = useSelector((state) => state.user);
 
   if (isLoading) return <FullScreenLoader />;
@@ -58,6 +59,7 @@ function AnimatedRoutes() {
           <Route path="/tables" element={<Tables />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/inventory" element={<Inventory />} />
+          <Route path="/add-stock" element={<AddStock />} />
 
           {/* Redirect if already authenticated */}
           <Route path="/auth" element={isAuth ? <Navigate to="/" /> : <Auth />} />
